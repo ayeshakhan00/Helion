@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <title>Photographer</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        .Section1 {
+            height: max-content;
+            width: 100%;
+            /* border: 1px solid red; */
+        }
+
+        .sidebar {
+            height: 100vh;
+            width: 17%;
+            /* border: 1px solid red; */
+            box-shadow: 2px 0px 6px 1px rgba(0, 0, 0, 0.29);
+            position: fixed;
+        }
+
+        .img1 {
+            height: 280px;
+            width: auto;
+            /* border: 1px solid blue; */
+            background-image: url(./photographyimgs/decoration-2.png);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .logo {
+            height: 25px;
+            width: 138px;
+            background-image: url(./photographyimgs/logo.png);
+            background-position: center;
+            background-size: cover;
+            position: absolute;
+            left: 16%;
+            top: 10%;
+        }
+
+        .navul {
+            margin-left: 5%;
+            margin-top: -20%;
+            list-style: none;
+        }
+
+        .navlist {
+            color: rgb(95, 96, 97);
+            font-weight: bold;
+            margin: 28px;
+            font-size: 18px;
+            transition: .34s;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .arrow {
+            opacity: 0;
+            left: 80%;
+            position: absolute;
+            transition: .40s;
+        }
+
+        .navlist:hover {
+            color: orangered;
+        }
+
+        .navlist:hover .arrow {
+            opacity: 1;
+            color: orangered;
+            left: 84%;
+
+        }
+
+        .icdiv {
+            height: 8vh;
+            width: 50%;
+            /* border: 1px solid blue; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 14%;
+            margin-top: 26%;
+
+        }
+
+        .icon {
+            cursor: pointer;
+            color: black;
+            font-size: 16px;
+            margin: 12px;
+            transition: .20s;
+        }
+
+        .icon:hover {
+            color: rgb(233, 51, 20);
+
+        }
+
+        .rightdiv {
+            height: max-content;
+            width: 83%;
+            /* border: 1px solid green; */
+            margin-left: 17%;
+        }
+
+        .categories {
+            height: 15vh;
+            width: 98%;
+            /* border: 1px solid blue; */
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+        }
+
+        .ctg {
+            display: flex;
+        }
+
+        .c1 {
+            padding: 20px 25px;
+            font-weight: bold;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .c1:hover {
+            color: orangered;
+        }
+
+        .line {
+            height: 3px;
+            width: 60%;
+            background-color: orangered;
+            position: absolute;
+            margin-top: -10px;
+            left: 10px;
+            transition: .40s;
+            opacity: 0;
+        }
+
+        .c1:hover .line {
+            opacity: 1;
+            left: 24px;
+        }
+
+        .floor2 {
+            height: max-content;
+            width: 100%;
+            border: 1px solid blue;
+            display: flex;
+        }
+
+        .maingrid {
+            display: grid;
+            width: 100%;
+            grid-template-columns: repeat(3, 32%);
+            grid-template-rows: repeat(1, 225vh);
+
+        }
+
+        .gridb3 {
+            border: 1px solid palevioletred;
+            margin-left: 13%;
+        }
+
+        .gridb3:nth-child(1) {
+            display: grid;
+            grid-template-columns: repeat(1, 100%);
+            grid-template-rows: 280px 280px 280px 370px;
+            gap: 3%;
+        }
+
+        .capturedimgs1 {
+            /* border: 1px solid red; */
+            border-radius: 7px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cimg {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            transition: .34s;
+        }
+
+        .capturedimgs1:hover .cimg {
+            transform: scale(1.1);
+
+        }
+
+        .blackdiv {
+            position: absolute;
+            height: 90%;
+            width: 90%;
+            background-color: rgba(0, 0, 0, 0.69);
+            border-radius: 7px;
+            left: 5%;
+            top: 5%;
+            opacity: 0;
+            transition: .50s;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+
+        .capturedimgs1:hover .blackdiv {
+            opacity: 1;
+        }
+
+        .orngarrow {
+            color: orangered;
+            font-size: 40px;
+        }
+
+        .lita {
+            color: white;
+            margin-top: -40px;
+            cursor: pointer;
+            transition: .30s;
+            text-align: center;
+        }
+        .lita:hover{
+            color: gainsboro;
+        }
+        .lifestyle{
+            color: gray;
+            margin-top: -40px;
+            cursor: pointer;
+            transition: .50s;
+        }
+        .lifestyle:hover{
+            text-decoration: underline;
+            color: white;
+        }
+        .gridb3:nth-child(2){
+            display: grid;
+            grid-template-columns: repeat(1, 100%);
+            grid-template-rows: 420px 240px 400px 280px;
+            gap: 3%;
+        }
+        .gridb3:nth-child(3){
+            display: grid;
+            grid-template-columns: repeat(1, 100%);
+            grid-template-rows: 290px 340px 300px 360px ;
+            gap: 3%;
+        }
+        .buttondiv{
+            height: 8vh;
+            width: 100%;
+            /* border: 1px solid blue; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .btn1{
+            height: 55px;
+            width: 200px;
+            color: black;
+            border: 2px solid black;
+            background-color: transparent;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: .40s;
+            cursor: pointer;
+        }
+        .btn1:hover{
+            background-color: black;
+            color: white;
+
+        }
+
+
+
+
+
+
+
+
+
+        @media screen and (max-width: 1200px) {
+            .maingrid{
+                grid-template-rows: repeat(1, 190vh);
+            }
+            .gridb3:nth-child(1){
+                grid-template-rows: 230px 230px 230px 290px;
+                gap: 2%;
+            }
+            .gridb3:nth-child(2){
+                grid-template-rows: 320px 200px 300px 220px;
+                gap: 2%;
+            }
+            .gridb3:nth-child(3){
+                grid-template-rows: 220px 260px 240px 280px ;
+                gap: 2%;
+            }
+            .lita{
+                font-size: 17px;
+            }
+        }
+        @media screen and (max-width: 1000px) {
+            .sidebar{
+                width: 25%;
+            }
+            .rightdiv{
+                width: 75%;
+                margin-left: 25%;
+            }
+            .navul{
+                margin-top: -100px;
+            }
+            .floor2{
+                flex-direction: row;
+            }
+            .maingrid{
+                grid-template-columns: repeat(1, 100%);
+                grid-template-rows: 96vh 96vh 107vh;
+            }
+            .gridb3{
+                margin-left: 4%;
+            }
+            .gridb3:nth-child(1){
+                grid-row: 1/2;
+                grid-column: 1/2;
+                grid-template-columns: repeat(2, 45%);
+                grid-template-rows: 280px 280px;
+                gap: 4%;
+            }
+            .gridb3:nth-child(2){
+                grid-row: 3/4;
+                grid-column: 1/2;
+                grid-template-columns: repeat(2, 45%);
+                grid-template-rows: 280px 280px;
+                gap: 4%;
+            }
+            .gridb3:nth-child(3){
+                grid-row: 2/3;
+                grid-column: 1/2;
+                grid-template-columns: repeat(2, 45%);
+                grid-template-rows: 280px 280px;
+                gap: 4%;
+            }
+            .buttondiv{
+                margin-left: 200px;
+            }
+            
+        }
+        @media screen and (max-width: 700px) {
+            .maingrid{
+                grid-template-columns: repeat(1, 100%);
+                grid-template-rows: 96vh 96vh 107vh;
+            }
+            .gridb3{
+                margin-left: 4%;
+            }
+            .gridb3:nth-child(1){
+                grid-row: 1/2;
+                grid-column: 1/2;
+                grid-template-columns: repeat(2, 45%);
+                grid-template-rows: 260px 260px;
+                gap: 4%;
+            }
+            .gridb3:nth-child(2){
+                grid-row: 3/4;
+                grid-column: 1/2;
+                grid-template-columns: repeat(2, 45%);
+                grid-template-rows: 280px 280px;
+                gap: 4%;
+            }
+            .gridb3:nth-child(3){
+                grid-row: 2/3;
+                grid-column: 1/2;
+                grid-template-columns: repeat(2, 45%);
+                grid-template-rows: 280px 280px;
+                gap: 4%;
+            }
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="Section1">
+        <div class="sidebar">
+            <div class="img1">
+                <div data-aos="fade-down" class="logo"></div>
+            </div>
+            <ul class="navul">
+                <li class="navlist">Home.
+                    <i class="fa-solid fa-arrow-right arrow"></i>
+                </li>
+                <li class="navlist">Pages.
+                    <i class="fa-solid fa-arrow-right arrow"></i>
+                </li>
+                <li class="navlist">About Us.
+                    <i class="fa-solid fa-arrow-right arrow"></i>
+                </li>
+                <li class="navlist">Blog.
+                    <i class="fa-solid fa-arrow-right arrow"></i>
+                </li>
+                <li class="navlist">Store.</li>
+                <li class="navlist">Contacts.
+                    <i class="fa-solid fa-arrow-right arrow"></i>
+                </li>
+            </ul>
+            <div data-aos="fade-up" class="icdiv">
+                <i class="fa-brands fa-facebook-f icon"></i>
+                <i class="fa-brands fa-twitter icon"></i>
+                <i class="fa-brands fa-dribbble icon"></i>
+                <i class="fa-brands fa-behance icon"></i>
+            </div>
+        </div>
+        <div class="rightdiv">
+            <div class="categories">
+                <ul class="ctg">
+                    <div class="c1">All Works
+                        <div class="line"></div>
+                    </div>
+                    <div class="c1">Couples
+                        <div class="line"></div>
+                    </div>
+                    <div class="c1">Lifestyle
+                        <div class="line"></div>
+                    </div>
+                    <div class="c1">Potraits
+                        <div class="line"></div>
+                    </div>
+                </ul>
+            </div>
+            <div class="floor2">
+                <div class="maingrid">
+                    <div class="gridb3">
+                        <div class="capturedimgs1">
+                            <img class="cimg" src="photographyimgs/port-19-copyright-750x617.jpg" alt="">
+                            <div class="blackdiv">
+                                <i class="fa-solid fa-arrow-right-long orngarrow"></i>
+                                <h2 data-aos="fade-down"
+                                data-aos-duration="1400" class="lita">Love in the Air</h2>
+                                <h4 data-aos="fade-up"
+                                data-aos-duration="1400" class="lifestyle">Lifestyle</h4>
+                            </div>
+                        </div>
+                        <div class="capturedimgs1">
+                            <img class="cimg" src="photographyimgs/port-24-copyright-750x675.jpg" alt="">
+                            <div class="blackdiv">
+                                <i class="fa-solid fa-arrow-right-long orngarrow"></i>
+                                <h2 data-aos="fade-down"
+                                data-aos-duration="1400" class="lita">Friendly Street Styles</h2>
+                                <h4 data-aos="fade-up"
+                                data-aos-duration="1400" class="lifestyle">Potraits</h4>
+                            </div>
+                        </div>
+                        <div class="capturedimgs1">
+                            <img class="cimg" src="photographyimgs/port-27-copyright-750x617.jpg" alt="">
+                            <div class="blackdiv">
+                                <i class="fa-solid fa-arrow-right-long orngarrow"></i>
+                                <h2 data-aos="fade-down"
+                                data-aos-duration="1000" class="lita">Newlywed Shoot</h2>
+                                <h4 data-aos="fade-up"
+                                data-aos-duration="1000" class="lifestyle">Couples</h4>
+                            </div>
+                        </div>
+                        <div class="capturedimgs1">
+                            <img class="cimg" src="photographyimgs/port-30-copyright-750x807.jpg" alt="">
+                            <div class="blackdiv">
+                                <i class="fa-solid fa-arrow-right-long orngarrow"></i>
+                                <h2 data-aos="fade-down"
+                                data-aos-duration="1000" class="lita">Ethnic Stories</h2>
+                                <h4 data-aos="fade-up"
+                                data-aos-duration="1000" class="lifestyle">Potraits</h4>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="gridb3">
+                        <div class="capturedimgs1">
+                            <img class="cimg" src="photographyimgs/port-20-copyright-750x919.jpg" alt="">
+                            <div class="blackdiv">
+                                <i class="fa-solid fa-arrow-right-long orngarrow"></i>
+                                <h2 data-aos="fade-down"
+                                data-aos-duration="1400" class="lita">People's Potraits</h2>
+                                <h4 data-aos="fade-up"
+                                data-aos-duration="1400" class="lifestyle">Potraits</h4>
+                            </div>
+                        </div>
+                        <div class="capturedimgs1">
+                            <img class="cimg" src="photographyimgs/port-23-copyright-750x535.jpg" alt="">
+                            <div class="blackdiv">
+                                <i class="fa-solid fa-arrow-right-long orngarrow"></i>
+                                <h2 data-aos="fade-down"
+                                data-aos-duration="1400" class="lita">Marathon Highlights</h2>
+                                <h4 data-aos="fade-up"
+                                data-aos-duration="1400" class="lifestyle">Couples</h4>
+                            </div>
+                        </div>
+                        <div class="capturedimgs1">
+                            <img class="cimg" src="photographyimgs/port-26-copyright-750x818.jpg" alt="">
+                            <div class="blackdiv">
+                                <i class="fa-solid fa-arrow-right-long orngarrow"></i>
+                                <h2 data-aos="fade-down"
+                                data-aos-duration="1400" class="lita">Craftsmen</h2>
+                                <h4 data-aos="fade-up"
+                                data-aos-duration="1400" class="lifestyle">Potraits</h4>
+                            </div>
+                        </div>
+                        <div class="capturedimgs1">
+                            <img class="cimg" src="photographyimgs/port-29-copyright-750x614.jpg" alt="">
+                            <div class="blackdiv">
+                                <i class="fa-solid fa-arrow-right-long orngarrow"></i>
+                                <h2 data-aos="fade-down"
+                                data-aos-duration="1400" class="lita">Relationship Goals</h2>
+                                <h4 data-aos="fade-up"
+                                data-aos-duration="1400" class="lifestyle">Couples</h4>
+                            </div>
+                        </div>
+                        <div class="buttondiv">
+                            <button class="btn1">Load More</button>
+                        </div>
+                    </div>
+                    <div class="gridb3">
+                        <div class="capturedimgs1">
+                            <img class="cimg" src="photographyimgs/port-21-copyright-750x617.jpg" alt="">
+                            <div class="blackdiv">
+                                <i class="fa-solid fa-arrow-right-long orngarrow"></i>
+                                <h2 data-aos="fade-down"
+                                data-aos-duration="1400" class="lita">Anniversary Session</h2>
+                                <h4 data-aos="fade-up"
+                                data-aos-duration="1400" class="lifestyle">Couples</h4>
+                            </div>
+                        </div>
+                        <div class="capturedimgs1">
+                            <img class="cimg" src="photographyimgs/port-22-copyright-750x738.jpg" alt="">
+                            <div class="blackdiv">
+                                <i class="fa-solid fa-arrow-right-long orngarrow"></i>
+                                <h2 data-aos="fade-down"
+                                data-aos-duration="1400" class="lita">Trending Hairstyles</h2>
+                                <h4 data-aos="fade-up"
+                                data-aos-duration="1400" class="lifestyle">Lifestyles</h4>
+                            </div>
+                        </div>
+                        <div class="capturedimgs1">
+                            <img class="cimg" src="photographyimgs/port-25-copyright-750x614.jpg" alt="">
+                            <div class="blackdiv">
+                                <i class="fa-solid fa-arrow-right-long orngarrow"></i>
+                                <h2 data-aos="fade-down"
+                                data-aos-duration="1400" class="lita">City Cafe Favourites</h2>
+                                <h4 data-aos="fade-up"
+                                data-aos-duration="1400" class="lifestyle">Lifestyles</h4>
+                            </div>
+                        </div>
+                        <div class="capturedimgs1">
+                            <img class="cimg" src="photographyimgs/port-28-copyright-750x835.jpg" alt="">
+                            <div class="blackdiv">
+                                <i class="fa-solid fa-arrow-right-long orngarrow"></i>
+                                <h2 data-aos="fade-down"
+                                data-aos-duration="1400" class="lita">Coworking Space</h2>
+                                <h4 data-aos="fade-up"
+                                data-aos-duration="1400" class="lifestyle">Lifestyles</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+    </div>
+
+
+
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
